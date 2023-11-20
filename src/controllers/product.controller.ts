@@ -7,6 +7,12 @@ async function create(req: Request, res: Response) {
   res.status(201).json(newProduct.data);
 }
 
+async function findAll(req: Request, res: Response) {
+  const products = await productService.findAll();
+  res.status(200).json(products.data);
+}
+
 export default {
+  findAll,
   create,
 };
