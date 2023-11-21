@@ -11,3 +11,8 @@ export type ServiceResponseSuccess<T> = {
 };
 
 export type ServiceResponse<T> = ServiceResponseError | ServiceResponseSuccess<T>;
+
+export type ProductResponseMiddleware = {
+  status: number, 
+  message: string,
+};
