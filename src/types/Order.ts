@@ -10,4 +10,9 @@ export type OrderMap = {
   productIds?: number[];
 };
 
+export type OrderCreate = {
+  userId: number;
+  productIds: number[];
+};
+
 export type ProductId = { id: number };

@@ -18,7 +18,16 @@ async function findAll(): Promise<ServiceResponse<ProductSequelizeModel[]>> {
   return { status: 'SUCCESSFUL', data: products };
 }
 
+async function update(
+  id: number,
+  product: ProductInputtableTypes,
+): Promise<ServiceResponse<ProductCreate>> {
+  await ProductModel.update(product, { where: { id } });
+  return { status: 'SUCCESSFUL', data: { id, ...product } };
+}
+
 export default {
   findAll,
   create,
+  update,
 };
