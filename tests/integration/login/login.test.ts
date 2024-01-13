@@ -59,18 +59,18 @@ describe('POST /login', function () {
     expect(httpResponse.status).to.equal(401);
     expect(httpResponse.body).to.be.deep.equal({ message: 'Username or password invalid' });
   });
-  // it('ao receber um username e uma senha válida, retorne um token de login', async function () {
-  //   // Arrange
-  //   const httpRequestBody = loginMock.validLoginBody
-  //   const mockFindOneReturn = UserModel.build(loginMock.existingUser);
-  //   sinon.stub(UserModel, 'findOne').resolves(mockFindOneReturn);
+  it('ao receber um username e uma senha válida, retorne um token de login', async function () {
+    // Arrange
+    const httpRequestBody = loginMock.validLoginBody
+    const mockFindOneReturn = UserModel.build(loginMock.existingUser);
+    sinon.stub(UserModel, 'findOne').resolves(mockFindOneReturn);
 
-  //   // Act
-  //   const httpResponse = await chai.request(app).post('/login').send(httpRequestBody);
+    // Act
+    const httpResponse = await chai.request(app).post('/login').send(httpRequestBody);
 
-  //   // Assert
-  //   expect(httpResponse.status).to.equal(200);
-  //   expect(httpResponse.body).to.have.key('token');
-  // });
+    // Assert
+    expect(httpResponse.status).to.equal(200);
+    expect(httpResponse.body).to.have.key('token');
+  });
 
 });
